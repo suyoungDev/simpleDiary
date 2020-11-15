@@ -1,5 +1,6 @@
 import React from 'react';
 import Contaier from '../components/Container';
+import Contents from '../components/Contents';
 import styled from 'styled-components/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -9,9 +10,10 @@ const Text = styled.Text`
 `;
 
 function Detail( {navigation, route} ){
-  navigation.setOptions( {title: route.params.date} );
   const [text, setText] = React.useState('');
+
   React.useEffect( ()=>{
+    navigation.setOptions( {title: route.params.date} );
     AsyncStorage.getItem('list')
       .then( data => {
         const list = JSON.parse(data);
@@ -22,7 +24,9 @@ function Detail( {navigation, route} ){
 
   return(
     <Contaier>
-      <Text>{ text }</Text>
+      <Contents>
+        <Text>{ text }</Text>
+      </Contents>
     </Contaier>
   )
 }

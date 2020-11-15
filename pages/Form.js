@@ -25,6 +25,7 @@ function Form( {navigation} ){
   const [text, setText] = React.useState('');
 
   const store = async () => {
+    // 비어있으면 저장 비활성화
     if( date === '' ) return;
     if( text === '' ) return;
 
