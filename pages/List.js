@@ -45,7 +45,7 @@ function List( {navigation} ){
           return (
             <ListItem 
               key={item.date}
-              onPress={ ()=> navigation.navigate('Detail')}>
+              onPress={ ()=> navigation.navigate('Detail', { date:item.date, text:item.text} )}>
               <Label>{item.date}</Label>
             </ListItem>
           )
